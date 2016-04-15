@@ -38,7 +38,7 @@ getInfo.controller('contacts',function($scope) {
         var myphone = document.getElementById('phone');
         var myemail = document.getElementById('email');
         var mypic = document.getElementById('pic');
-        $scope.records.push({'Name': myname.value, "Address":myaddress.value, 'Phone':myphone.value, "Email":myemail.value, 'pic': mypic.value || 'http://2qdocg2za8g336a8w21fo83z.wpengine.netdna-cdn.com/wp-content/uploads/2015/06/english-vocabulary-words-anonymous.png'});
+        $scope.records.push({'Name': myname.value || 'Name of Contact', "Address":myaddress.value || 'Contact Address', 'Phone':myphone.value || '555-555-5555', "Email":myemail.value || 'something@something.com', 'pic': mypic.value || 'http://2qdocg2za8g336a8w21fo83z.wpengine.netdna-cdn.com/wp-content/uploads/2015/06/english-vocabulary-words-anonymous.png'});
     }
    
 });

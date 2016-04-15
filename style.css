@@ -33,3 +33,16 @@ img {
 body {
     background-color: #7b828c;
 }
+
+@media only screen and (max-width: 980px) {
+    img {
+        margin-left: 36%;
+        height: 100px;
+    }
+    #contactName {
+        text-align: center;
+    }
+    #picture {
+        background-color: #d6d6d6;
+    }
+}
