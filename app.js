@@ -14,18 +14,21 @@ getInfo.controller('contacts',function($scope) {
             "Name" : "Berglunds snabbköp",
             "Address" : "Sweden",
             "Email" :"Something.com",
-            "Phone" : "555-5555"
+            "Phone" : "555-5555",
+            'pic' : 'http://2qdocg2za8g336a8w21fo83z.wpengine.netdna-cdn.com/wp-content/uploads/2015/06/english-vocabulary-words-anonymous.png'
 
         },{
             "Name" : "Centro comercial Moctezuma",
             "Address" : "Mexico",
             "Email" :"Something.com",
-            "Phone" : "555-5555"
+            "Phone" : "555-5555",
+            'pic' : 'http://2qdocg2za8g336a8w21fo83z.wpengine.netdna-cdn.com/wp-content/uploads/2015/06/english-vocabulary-words-anonymous.png'
         },{
             "Name" : "Ernst Handel",
             "Address" : "Austria",
             "Email" :"Something.com",
-            "Phone" : "555-5555"
+            "Phone" : "555-5555",
+            'pic' : 'http://2qdocg2za8g336a8w21fo83z.wpengine.netdna-cdn.com/wp-content/uploads/2015/06/english-vocabulary-words-anonymous.png'
         }
     ];
     var contact = $scope.records;
@@ -35,14 +38,7 @@ getInfo.controller('contacts',function($scope) {
         var myphone = document.getElementById('phone');
         var myemail = document.getElementById('email');
         var mypic = document.getElementById('pic');
-        $scope.records.push({'Name': myname.value, "Address":myaddress.value, 'Phone':myphone.value, "Email":myemail.value, 'pic': mypic.value});
+        $scope.records.push({'Name': myname.value, "Address":myaddress.value, 'Phone':myphone.value, "Email":myemail.value, 'pic': mypic.value || 'http://2qdocg2za8g336a8w21fo83z.wpengine.netdna-cdn.com/wp-content/uploads/2015/06/english-vocabulary-words-anonymous.png'});
     }
    
 });
-
-/*var myapp = angular.module('myApp', []);
-
-myapp.controller('HelloWorldCtrl', function($scope){
-    $scope.helloMessage = "Hello world";
-
-}) */
