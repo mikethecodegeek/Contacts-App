@@ -1,9 +1,9 @@
 .glyphicon {
-    font-size: 18px;
+    font-size: 25px;
 }
 
 img {
-    height: 100px;
+    height: 130px;
 }
 
 .head {
@@ -21,8 +21,15 @@ img {
 .contact {
     border: thin solid black;
     padding:2px;
+    background-color: #555e8b;
+    color: #cfcad0;
+    font-size: 25px;
 }
 
 #myform {
     display: none;
+}
+
+body {
+    background-color: #7b828c;
 }

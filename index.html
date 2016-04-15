@@ -6,6 +6,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <script src='https://code.jquery.com/jquery-2.2.3.min.js'></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href='https://cdn.jsdelivr.net/animatecss/3.5.1/animate.min.css'>
     <link rel="stylesheet" href="style.css">
     <script src='main.js'></script>
     <script src="app.js"></script>
@@ -21,16 +22,17 @@
             </button></div>
     </div>
     <div ng-controller="contacts">
-    <div class="contact col-xs-12" ng-repeat="x in records">
-        <div class="col-xs-3"><img class='img-circle img-responsive' src={{x.pic}}></div>
-        <div class="col-xs-9">{{x.Name}}</div>
-        <div class="col-xs-1 glyphicon glyphicon-phone"></div>
-        <div class="xs-8">{{x.Phone}}</div>
-        <div class="col-xs-1 glyphicon glyphicon-home"></div>
-        <div class="xs-8">{{x.Address}}</div>
-        <div class="col-xs-1 glyphicon glyphicon-envelope"></div>
-        <div class="xs-8">{{x.Email}}l</div>
+    <div class="contact col-xs-12 rollIn" style="border: solid black medium" ng-repeat="x in records">
+        <div class="col-md-3 col-xs-12"><img class='img-circle' src={{x.pic}}></div>
+        <div class="col-md-9 col-xs-12">{{x.Name}}</div>
+        <div class="col-md-1 col-xs-2 glyphicon glyphicon-phone"></div>
+        <div class="col-md-8 ">{{x.Phone}}</div>
+        <div class="col-md-1 col-xs-2 glyphicon glyphicon-home"></div>
+        <div class="col-md-8 col-xs-10">{{x.Address}}</div>
+        <div class="col-md-1 col-xs-2 glyphicon glyphicon-envelope"></div>
+        <div class="col-md-8 col-xs-10">{{x.Email}}l</div>
     </div>
+
         <div id="#myform">
             <div>Name</div>
             <input id='name' type="text">
