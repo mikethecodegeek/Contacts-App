@@ -18,5 +18,12 @@ function init() {
             $("img").addClass("img-circle");
         }
     });
-  
+    $('#myModal').on('hidden.bs.modal', function () {
+        $(this).find("input,textarea,select").val('').end();
+
+    });
+    $('#myModal2').on('hidden.bs.modal', function () {
+        $(this).find("input,textarea,select").val('').end();
+
+    });
 }

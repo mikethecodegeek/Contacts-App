@@ -33,7 +33,17 @@ getInfo.controller('contacts',function($scope, $localStorage) {
         $('#myModal2').modal('show');
         getind = function() {
             return ind;
-        }
+        };
+            var myname = $('#contactName').text() || 'Name of Contact';
+            var myaddress = $('#editaddress').text() || 'Contact Address';
+            var myphone = $('#editphone').text() || 'Contact Phone';
+            var myemail = $('#editemail').text() || 'Contact Email';
+            var mypic = $('#editpic').text() || 'http://2qdocg2za8g336a8w21fo83z.wpengine.netdna-cdn.com/wp-content/uploads/2015/06/english-vocabulary-words-anonymous.png';
+            $('#editname').val(myname);
+            $('#editaddress').val(myaddress);
+            $('#editphone').val(myphone);
+            $('#editemail').val(myemail);
+            $('#editpic').val(mypic);
 
     };
      $scope.modal =function() {
@@ -47,6 +57,7 @@ getInfo.controller('contacts',function($scope, $localStorage) {
         //console.log(obj);
          var ind=getind();
         $localStorage.contact[ind]=obj;
+
     };
      
 
