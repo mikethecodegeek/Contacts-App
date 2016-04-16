@@ -18,4 +18,5 @@ function init() {
             $("img").addClass("img-circle");
         }
     });
+  
 }

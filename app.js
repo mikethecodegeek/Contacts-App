@@ -1,44 +1,53 @@
 /**
  * Created by Admin on 4/14/16.
  */
-var getInfo= angular.module('GetInfo', []);
-getInfo.controller('contacts',function($scope) {
-    $scope.records = [
-        {
-            "Name" : "Alfreds Futterkiste",
-            "Address" : "Germany",
-            "Email" :"Something.com",
-            "Phone" : "555-5555",
-            "pic":"http://geedmo.com/codecanyon/47admin/app/img/user/06.jpg"
-        },{
-            "Name" : "Berglunds snabbköp",
-            "Address" : "Sweden",
-            "Email" :"Something.com",
-            "Phone" : "555-5555",
-            'pic' : 'http://2qdocg2za8g336a8w21fo83z.wpengine.netdna-cdn.com/wp-content/uploads/2015/06/english-vocabulary-words-anonymous.png'
+var getInfo= angular.module('GetInfo', ['ngStorage']);
+getInfo.controller('contacts',function($scope, $localStorage) {
+    if ($localStorage.contact === undefined){ $localStorage.contact= [] }
 
-        },{
-            "Name" : "Centro comercial Moctezuma",
-            "Address" : "Mexico",
-            "Email" :"Something.com",
-            "Phone" : "555-5555",
-            'pic' : 'http://2qdocg2za8g336a8w21fo83z.wpengine.netdna-cdn.com/wp-content/uploads/2015/06/english-vocabulary-words-anonymous.png'
-        },{
-            "Name" : "Ernst Handel",
-            "Address" : "Austria",
-            "Email" :"Something.com",
-            "Phone" : "555-5555",
-            'pic' : 'http://2qdocg2za8g336a8w21fo83z.wpengine.netdna-cdn.com/wp-content/uploads/2015/06/english-vocabulary-words-anonymous.png'
-        }
-    ];
+    $scope.records = $localStorage.contact;
     var contact = $scope.records;
     $scope.addContact = function() {
-        var myname = document.getElementById('name');
-        var myaddress = document.getElementById('address');
-        var myphone = document.getElementById('phone');
-        var myemail = document.getElementById('email');
-        var mypic = document.getElementById('pic');
-        $scope.records.push({'Name': myname.value || 'Name of Contact', "Address":myaddress.value || 'Contact Address', 'Phone':myphone.value || '555-555-5555', "Email":myemail.value || 'something@something.com', 'pic': mypic.value || 'http://2qdocg2za8g336a8w21fo83z.wpengine.netdna-cdn.com/wp-content/uploads/2015/06/english-vocabulary-words-anonymous.png'});
-    }
-   
-});
+        var objArr = $localStorage.contact;
+        objArr.push(createContact());
+        $localStorage.contact=objArr;
+
+    };
+     var createContact = function() {
+        var myname = document.getElementById('name').value || 'Name of Contact';
+        var myaddress = document.getElementById('address').value || 'Contact Address';
+        var myphone = document.getElementById('phone').value || 'Contact Phone';
+        var myemail = document.getElementById('email').value || 'Contact Email';
+        var mypic = document.getElementById('pic').value || 'http://2qdocg2za8g336a8w21fo83z.wpengine.netdna-cdn.com/wp-content/uploads/2015/06/english-vocabulary-words-anonymous.png';
+        var obj = {name:myname, address:myaddress,phone:myphone,email:myemail,pic:mypic};
+        return obj
+    };
+    $scope.delete = function() {
+        var thing = $(this);
+        var ind = (thing[0].$index);
+        $localStorage.contact.splice(ind,1);
+    };
+    $scope.edit = function() {
+
+        ind = (this.$index);
+        $('#myModal2').modal('show');
+        getind = function() {
+            return ind;
+        }
+
+    };
+     $scope.modal =function() {
+
+        var myname = document.getElementById('editname').value || 'Name of Contact';
+        var myaddress = document.getElementById('editaddress').value || 'Contact Address';
+        var myphone = document.getElementById('editphone').value || 'Contact Phone';
+        var myemail = document.getElementById('editemail').value || 'Contact Email';
+        var mypic = document.getElementById('editpic').value || 'http://2qdocg2za8g336a8w21fo83z.wpengine.netdna-cdn.com/wp-content/uploads/2015/06/english-vocabulary-words-anonymous.png';
+        var obj = {name:myname, address:myaddress,phone:myphone,email:myemail,pic:mypic};
+        //console.log(obj);
+         var ind=getind();
+        $localStorage.contact[ind]=obj;
+    };
+     
+
+    });
